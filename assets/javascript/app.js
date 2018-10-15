@@ -11,6 +11,8 @@ function alertTopicName() {
 
 // Function for displaying movie data
 function renderButtons() {
+    
+
 
     // Deleting the movies prior to adding new movies
     // (this is necessary otherwise we will have repeat buttons)
@@ -34,7 +36,9 @@ function renderButtons() {
             .toggle(1000)
             .show(1000);
     }
+    $(".btn-success").on("click", onclick);
 }
+
 
 // This function handles events where one button is clicked
 $("#add-topic").on("click", function (event) {
@@ -52,49 +56,54 @@ $("#add-topic").on("click", function (event) {
 })
 /////////////////// BUTTON ACTION\\\\\\\\\\\\\\\\\\ 
 // Adding click event listener to all buttons
-$(".btn-success").on("click", function () {
+function onclick() {
 
-            // Grabbing and storing the data-topic property value from the button
-            var topic = $(this).attr("data-topic");
+    // Grabbing and storing the data-topic property value from the button
+    var topic = $(this).attr("data-topic");
+    // "space"
+    console.log("on click here");
 
-            // Constructing a queryURL using the topic name
-            var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=BdfguUwK9PdlLIUGhOp0zoLr4FUlIClu&q=" +
-                topic + "&limit=2&offset=0&rating=G&lang=en";
+    // Constructing a queryURL using the topic name
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=BdfguUwK9PdlLIUGhOp0zoLr4FUlIClu&q=" +
+        topic + "&limit=10&offset=0&rating=G&lang=en";
 
-            // Performing an AJAX request with the queryURL
-            $.ajax({
-                    url: queryURL,
-                    method: "GET"
-                })
-                // After data comes back from the request
-                .then(function (response) {
+    // Performing an AJAX request with the queryURL
+    $.ajax({
+            url: queryURL,
+            method: "GET"
+        })
+        // After data comes back from the request
+        .then(doSomething);
+}
 
-                    //console.log(queryURL);
-                    console.log(response);
-                    // storing the data from the AJAX request in the results variable
-                    //make a variable called results and set it equal to response.data
-                    var results = response.data;
 
-                    // make a for loop that will iterate through the results array
-                    for (var i = 0; i < results.length; i++) {
-                        // Creating and storing a div tag
-                        var topicDiv = $("<div>");
+function doSomething(response) {
 
-                        // Creating a paragraph tag with the result item's rating
-                        var p = $("<p>").text("Rating: " + results[i].rating);
+    //console.log(queryURL);
+    console.log(response);
+    // storing the data from the AJAX request in the results variable
+    //make a variable called results and set it equal to response.data
+    var results = response.data;
 
-                        // Creating and storing an image tag
-                        var topicImage = $("<img>");
-                        // Setting the src attribute of the image to a property pulled off the result item
-                        topicImage.attr("src", results[i].images.fixed_height.url);
+    // make a for loop that will iterate through the results array
+    for (var i = 0; i < results.length; i++) {
+        // Creating and storing a div tag
+        var topicDiv = $("<div>");
 
-                        // Appending the paragraph and image tag to the animalDiv
-                        topicDiv.append(p);
-                        topicDiv.append(topicImage);
+        // Creating a paragraph tag with the result item's rating
+        var p = $("<p>").text("Rating: " + results[i].rating);
 
-                        // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
-                        $("#gifs-appear-here").prepend(topicDiv);
-                    }
-                });
-            });
+        // Creating and storing an image tag
+        var topicImage = $("<img>");
+        // Setting the src attribute of the image to a property pulled off the result item
+        topicImage.attr("src", results[i].images.fixed_height.url);
+
+        // Appending the paragraph and image tag to the animalDiv
+        topicDiv.append(p);
+        topicDiv.append(topicImage);
+
+        // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
+        $("#gifs-appear-here").prepend(topicDiv);
+    }
+}
 
