@@ -2,13 +2,14 @@
     //RENDER BUTTON FROM ARRAY\\
 
     // Initial array of movies
-    var topics = ["space", "launch", "satellite", "astronaut", ];
+    var topics = [];
 
     // Generic function for capturing the movie name from the data-attribute
-    function alertMovieName() {
-        var topicName = $(this).attr("data-name");
+    function alertTopicName() {
+        var topicName = $(this).attr("data-topic");
 
         alert(topicName);
+        console.log(topicName);
     }
 
     // Function for displaying movie data
@@ -25,13 +26,13 @@
             // This code $("<button>") is all jQuery needs to create the start and end tag. (<button></button>)
             var spacebutton = $("<button>");
             // Adding a class of movie to our button
-            spacebutton.addClass("movie");
+            spacebutton.addClass("btn btn-success");
             // Adding a data-attribute
-            spacebutton.attr("data-name", topics[i]);
+            spacebutton.attr("data-topic", topics[i]);
             // Providing the initial button text
             spacebutton.text(topics[i]);
             // Adding the button to the HTML
-            $("#buttons-view").prepend(spacebutton);
+            $("#buttons-view").append(spacebutton);
             spacebutton.hide()
                 .toggle(3000)
                 .show(3000);
@@ -54,19 +55,19 @@
     });
 
     // Function for displaying the movie info
-    // We're adding a click event listener to all elements with the class "movie"
+    // We're adding a click event listener to all elements with the class "button-success"
     // We're adding the event listener to the document because it will work for dynamically generated elements
     // $(".movies").on("click") will only add listeners to elements that are on the page at that time
-    $(document).on("click", ".topic", alertMovieName);
+    $(document).on("click", ".btn button-success", alertTopicName);
 
     // Calling the renderButtons function to display the intial buttons
     renderButtons();
 
 
-    // BUTTON ACTION (NOT YET WORKING)
+    // BUTTON ACTION 
 
     // Adding click event listener to all buttons
-    $("button").on("click", function () {
+    $("spacebutton").on("click", function () {
 
         // Grabbing and storing the data-animal property value from the button
         var topic = $(this).attr("topics");
