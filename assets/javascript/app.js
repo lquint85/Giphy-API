@@ -56,6 +56,7 @@ $(".btn-success").on("click", function () {
 
     // Grabbing and storing the data-topic property value from the button
     var topic = $(this).attr("data-topic");
+    
     // Constructing a queryURL using the topic name
     var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=BdfguUwK9PdlLIUGhOp0zoLr4FUlIClu&q=" +
         topic + "&limit=2&offset=0&rating=G&lang=en";
@@ -72,8 +73,8 @@ $(".btn-success").on("click", function () {
             console.log(response);
             // storing the data from the AJAX request in the results variable
             //make a variable called results and set it equal to response.data
-            var results = (response.data);
-        });
+            var results = response.data;
+        
     // make a for loop that will iterate through the results array
     for (var i = 0; i < results.length; i++) {
         // Creating and storing a div tag
