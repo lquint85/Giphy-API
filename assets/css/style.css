@@ -1,0 +1,61 @@
+body {
+    background: url(../img/fm1222_gendler_big.jpg) no-repeat center fixed;
+    background-size: cover;
+}
+
+header {
+    background: black;
+    font-size: 28px;
+    color: white;
+    text-align: center;
+    padding: 20px 0px 5px 80px;
+    margin: 0px 0px 35px 0px;
+    font-family: 'Monserat', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    margin: 400px 0px 10px 20px;
+    font-family: 'Montserrat', sans-serif
+}
+
+p {
+    text-align: center;
+    font-family: 'Arvo', serif;
+    color: white;
+    font-size: 18px;
+    width: 50%;
+    margin: auto;
+}
+
+form {
+  margin: 40px 200px 10px 580px;
+
+}
+
+
+footer {
+    background: black;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px 0;
+    margin: 800px 0px 0px 30px;
+}
+img {
+    position: center;
+    margin: 5px 0px 10px 0px;
+}
+#buttons-view {
+    margin: 0px 10px 0px 590px;
+    
+}
+
+/* This is your Image Placement*/
+#images{
+    position:center;
+    color: white;
+    margin: auto 0px auto 675px;
+}
