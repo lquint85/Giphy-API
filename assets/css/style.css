@@ -11,7 +11,7 @@ header {
     padding: 20px 0px 5px 40px;
     margin: 0px 0px 35px 0px;
     font-family: 'Monserat', sans-serif;
- 
+
 }
 
 h1 {
@@ -31,7 +31,7 @@ p {
 }
 
 form {
-  margin: 40px 200px 10px 580px;
+    margin: 40px 200px 10px 580px;
 
 }
 
@@ -45,19 +45,26 @@ footer {
     padding: 20px 0;
     margin: 800px 0px 0px 30px;
 }
+
 img {
+    position: center;
+    margin: 10px 0px 10px 565px;
+}
+
+
+#img2 {
     position: center;
     margin: 5px 0px 10px 0px;
 }
+
 #buttons-view {
     margin: 0px 0px 0px 545px;
-    
+
 }
 
 /* This is your Image Placement*/
-#images{
-    position:center;
+#images {
+    position: center;
     color: white;
-    margin: auto 0px auto 675px;
+    margin: 3px 0px 0px 500px;
 }
-
