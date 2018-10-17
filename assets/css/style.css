@@ -8,9 +8,10 @@ header {
     font-size: 28px;
     color: white;
     text-align: center;
-    padding: 20px 0px 5px 80px;
+    padding: 20px 0px 5px 40px;
     margin: 0px 0px 35px 0px;
     font-family: 'Monserat', sans-serif;
+ 
 }
 
 h1 {
@@ -59,3 +60,4 @@ img {
     color: white;
     margin: auto 0px auto 675px;
 }
+

@@ -1,7 +1,7 @@
 //RENDER BUTTON FROM ARRAY and  Initial array of movies
-var topics = [];
+var topics = ["space", "time", "launch",];
 
-// Generic function for capturing the movie name from the data-attribute
+// Generic function for capturing the topic name from the data-attribute
 function alertTopicName() {
     var topicName = $(this).attr("data-topic");
 
@@ -9,7 +9,7 @@ function alertTopicName() {
     console.log(topicName);
 }
 
-// Function for displaying movie data
+// Function for displaying topic data
 function renderButtons() {
     
 
@@ -32,9 +32,8 @@ function renderButtons() {
         spacebutton.text(topics[i]);
         // Adding the button to the HTML
         $("#buttons-view").append(spacebutton);
-        spacebutton.hide()
-            .toggle(1000)
-            .show(1000);
+        spacebutton.show()
+        .toggle().hide().toggle(1000).show(1000);
     }
     $(".btn-success").on("click", onclick);
 }
